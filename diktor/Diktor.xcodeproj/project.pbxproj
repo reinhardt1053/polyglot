@@ -11,7 +11,7 @@
 		4D827DB51AA9B5BC00ADE84A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D827DAF1AA9B5BC00ADE84A /* main.cpp */; };
 		4D827DB61AA9B5BC00ADE84A /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D827DB01AA9B5BC00ADE84A /* node.cpp */; };
 		4D827DB71AA9B5BC00ADE84A /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D827DB21AA9B5BC00ADE84A /* text.cpp */; };
-		4DDF3C7A1AAF3BDF00D1E41F /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DDF3C791AAF3BDF00D1E41F /* parser.cpp */; };
+		4DDF3C801AB0335000D1E41F /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DDF3C7E1AB0335000D1E41F /* parser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,8 +35,8 @@
 		4D827DB11AA9B5BC00ADE84A /* node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = node.h; path = Diktor/node.h; sourceTree = SOURCE_ROOT; };
 		4D827DB21AA9B5BC00ADE84A /* text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = text.cpp; path = Diktor/text.cpp; sourceTree = SOURCE_ROOT; };
 		4D827DB31AA9B5BC00ADE84A /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = text.h; path = Diktor/text.h; sourceTree = SOURCE_ROOT; };
-		4DDF3C781AAF062F00D1E41F /* parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = SOURCE_ROOT; };
-		4DDF3C791AAF3BDF00D1E41F /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = SOURCE_ROOT; };
+		4DDF3C7E1AB0335000D1E41F /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parser.cpp; path = Diktor/parser.cpp; sourceTree = SOURCE_ROOT; };
+		4DDF3C7F1AB0335000D1E41F /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parser.h; path = Diktor/parser.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +69,8 @@
 		4D543DB61A4B443F00EB9C51 /* Diktor */ = {
 			isa = PBXGroup;
 			children = (
+				4DDF3C7E1AB0335000D1E41F /* parser.cpp */,
+				4DDF3C7F1AB0335000D1E41F /* parser.h */,
 				4D827DAD1AA9B5BC00ADE84A /* element.cpp */,
 				4D827DAE1AA9B5BC00ADE84A /* element.h */,
 				4D827DAF1AA9B5BC00ADE84A /* main.cpp */,
@@ -76,8 +78,6 @@
 				4D827DB11AA9B5BC00ADE84A /* node.h */,
 				4D827DB21AA9B5BC00ADE84A /* text.cpp */,
 				4D827DB31AA9B5BC00ADE84A /* text.h */,
-				4DDF3C781AAF062F00D1E41F /* parser.h */,
-				4DDF3C791AAF3BDF00D1E41F /* parser.cpp */,
 			);
 			name = Diktor;
 			path = Example1;
@@ -139,7 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DDF3C7A1AAF3BDF00D1E41F /* parser.cpp in Sources */,
+				4DDF3C801AB0335000D1E41F /* parser.cpp in Sources */,
 				4D827DB51AA9B5BC00ADE84A /* main.cpp in Sources */,
 				4D827DB41AA9B5BC00ADE84A /* element.cpp in Sources */,
 				4D827DB71AA9B5BC00ADE84A /* text.cpp in Sources */,
