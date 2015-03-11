@@ -12,12 +12,12 @@ namespace DOM {
 
 Text::Text(string data)
 {
-    this->data = data;
+    _data = data;
 }
 
 ostream& Text::toString(ostream& out) const
 {
-    return out << this->data << endl;
+    return out << _data << endl;
 }
 
 }

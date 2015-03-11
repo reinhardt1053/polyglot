@@ -13,22 +13,22 @@ namespace DOM {
 
 Element::Element(string tagName, map<string,string> attributes, vector<Node*> children)
 {
-    this->tagName = tagName;
-    this->attributes = attributes;
+    _tagName = tagName;
+    _attributes = attributes;
     this->children = children;
     
 }
 
 Element::Element(string tagName)
 {
-    this->tagName = tagName;
+    _tagName = tagName;
 }
 
     
 ostream& Element::toString(ostream& out) const
 {
     //Open tag
-    out << '<' << this->tagName << '>' << endl;
+    out << '<' << _tagName << '>' << endl;
     
     //Children
     for (auto child : this->children)
@@ -36,7 +36,7 @@ ostream& Element::toString(ostream& out) const
         out << *child;
     }
     
-    out << "</" << this->tagName << '>' << endl;
+    out << "</" << _tagName << '>' << endl;
     //Close tag;
     
     

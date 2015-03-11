@@ -14,16 +14,16 @@
 using namespace std;
 
 namespace DOM {
-
-class Node {
-private:
-    friend ostream& operator<<(ostream& out, const Node& node);
-protected:
-    virtual ostream& toString(ostream& out) const = 0;
     
-public:
-    vector<Node*> children;
-};
-
+    class Node {
+    private:
+        friend ostream& operator<<(ostream& out, const Node& node);
+    protected:
+        virtual ostream& toString(ostream& out) const = 0;
+        
+    public:
+        vector<Node*> children;
+    };
+    
 }
 #endif

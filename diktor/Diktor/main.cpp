@@ -10,6 +10,7 @@
 #include "node.h"
 #include "element.h"
 #include "text.h"
+#include "parser.h"
 
 using namespace std;
 

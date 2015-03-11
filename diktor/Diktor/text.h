@@ -18,7 +18,7 @@ namespace DOM {
 class Text : public Node
 {
 private:
-    string data;
+    string _data;
 
 protected:
     ostream& toString(ostream& out) const override;

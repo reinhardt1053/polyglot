@@ -19,8 +19,8 @@ namespace DOM {
 class Element : public Node
 {
 private:
-    string tagName;
-    map<string, string> attributes;
+    string _tagName;
+    map<string, string> _attributes;
     
 protected:
     ostream& toString(ostream& out) const override;
