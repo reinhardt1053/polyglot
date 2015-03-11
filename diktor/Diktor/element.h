@@ -22,12 +22,12 @@ private:
     string _tagName;
     map<string, string> _attributes;
     
-protected:
-    ostream& toString(ostream& out) const override;
-    
 public:
-    Element(string tagName, map<string,string> attributes, vector<Node*> children);
+    Element(string tagName, map<string,string> attributes, vector<shared_ptr<Node>> children);
     Element(string tagName);
+    
+    string toString() override;
+    
     
 };
 

@@ -11,7 +11,7 @@
 
 namespace DOM {
 
-Element::Element(string tagName, map<string,string> attributes, vector<Node*> children)
+Element::Element(string tagName, map<string,string> attributes, vector<shared_ptr<Node>> children)
 {
     _tagName = tagName;
     _attributes = attributes;
@@ -25,22 +25,28 @@ Element::Element(string tagName)
 }
 
     
-ostream& Element::toString(ostream& out) const
+string Element::toString()
 {
+    string result;
+    
     //Open tag
-    out << '<' << _tagName << '>' << endl;
+    result.push_back('<');
+    result.append(_tagName);
+    result.push_back('>');
+    
     
     //Children
     for (auto child : this->children)
     {
-        out << *child;
+        result.append(child->toString());
     }
     
-    out << "</" << _tagName << '>' << endl;
     //Close tag;
+    result.append("</");
+    result.append(_tagName);
+    result.push_back('>');
     
-    
-    return out;
+    return result;
    
 }
 

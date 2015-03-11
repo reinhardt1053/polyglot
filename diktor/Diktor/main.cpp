@@ -16,15 +16,28 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     
+    /*
     
-    DOM::Element html("html");
-    DOM::Element body("body");
-    DOM::Text text("Hello World");
+    //Build the DOM tree programmatically
+
+    auto root = make_shared<DOM::Element>("html");
+    auto body = make_shared<DOM::Element>("body");
+    auto text = make_shared<DOM::Text>("Hello World");
     
-    html.children.push_back(&body);
-    body.children.push_back(&text);
+    root->children.push_back(body);
+    body->children.push_back(text);
     
-    cout << html << endl;
+    cout << root->toString() << endl;
+    */
+    
+    
+    //Parse an html string (No root test)
+    string html = "<header><title>Diktor</title></header><body>Hello World</body>";
+    Parser parser;
+    auto root = parser.parse(html);
+    
+    cout << root->toString() << endl;
+    
     
     return 0;
 }

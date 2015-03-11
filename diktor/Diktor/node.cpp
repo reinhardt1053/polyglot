@@ -10,8 +10,5 @@
 #include <iostream>
 
 namespace DOM {
-ostream& operator<<(ostream& out, const Node& node)
-{
-        return node.toString(out);
-}
+
 }

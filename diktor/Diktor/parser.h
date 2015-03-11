@@ -11,11 +11,18 @@
 
 #include <stdlib.h>
 #include <string>
+#include "node.h"
+#include <functional>
+#include <map>
 
 using namespace std;
 
 
-typedef bool (*testCharFn)(char ch);
+struct Attribute {
+    string name;
+    string value;
+};
+
 
 class Parser {
     
@@ -25,15 +32,46 @@ private:
     string _input;
     
     static bool is_whitespace(char c);
+    static bool is_alpha_or_number(char c);
     
-public:
-    char next();
+protected:
+    char next_char();
     bool starts_with(string s);
     bool has_next();
     char consume_char();
-    string consume_while(testCharFn test);
+    string consume_while(function<bool(char)> test);
     void consume_whitespaces();
     
+    // Parse a tag name or attribute name
+    string parse_name();
+    
+    // Parse a quoted value
+    string parse_value();
+    
+    // Parse a text node
+    shared_ptr<DOM::Node> parse_text();
+    
+    // Parse a single element node, including its open tag, content, and closing tag
+    shared_ptr<DOM::Node> parse_element();
+    
+    // Parse a single node
+    shared_ptr<DOM::Node> parse_node();
+    
+    // Parse a single name="value" pair
+    Attribute parse_attr();
+    
+    // Parse a list of name="value" pairs, separated by whitespace.
+    map<string,string> parse_attributes();
+    
+    //Parse a sequence of sibling nodes
+    vector<shared_ptr<DOM::Node>> parse_nodes();
+    
+public:
+    Parser();
+    Parser(size_t pos, string input);
+    
+    // Parse an HTML document and return the root element.
+    shared_ptr<DOM::Node> parse(string source);
     
 };
 

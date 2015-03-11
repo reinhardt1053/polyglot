@@ -20,11 +20,10 @@ class Text : public Node
 private:
     string _data;
 
-protected:
-    ostream& toString(ostream& out) const override;
-    
 public:
     Text(string data);
+    
+    string toString() override;
 };
 
 }

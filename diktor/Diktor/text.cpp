@@ -14,10 +14,10 @@ Text::Text(string data)
 {
     _data = data;
 }
-
-ostream& Text::toString(ostream& out) const
+ 
+string Text::toString()
 {
-    return out << _data << endl;
+    return _data;
 }
 
 }
