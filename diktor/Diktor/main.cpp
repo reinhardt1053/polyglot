@@ -32,7 +32,7 @@ int main(int argc, const char * argv[]) {
     
     
     //Parse an html string (No root test)
-    string html = "<header><title>Diktor</title></header><body>Hello World</body>";
+    string html = "<header><title>Diktor</title></header><body><div id='test'>Hello World</div></body>";
     Parser parser;
     auto root = parser.parse(html);
     

@@ -54,7 +54,7 @@ bool Parser::starts_with(string s)
 
 bool Parser::has_next()
 {
-    return  _pos < _input.size();
+    return  _pos < _input.size() - 1;
 }
 
 //Consume a char
@@ -109,7 +109,7 @@ shared_ptr<DOM::Node> Parser::parse_element()
     assert(consume_char() == '<');
     
     string tag_name = parse_name();
-    map<string,string> attrs; //parse_attributes;
+    map<string,string> attrs = parse_attributes();
     
     assert(consume_char() == '>');
     

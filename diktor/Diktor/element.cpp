@@ -30,9 +30,21 @@ string Element::toString()
     string result;
     
     //Open tag
-    result.push_back('<');
+    result.append("<");
     result.append(_tagName);
-    result.push_back('>');
+    
+    //Attributes
+    if (!this->_attributes.empty())
+    {
+        result.append(" ");
+        for (auto attribute : this->_attributes){
+            result.append(attribute.first);
+            result.append("=\"");
+            result.append(attribute.second);
+            result.append("\"");
+        }
+    }
+    result.append(">");
     
     
     //Children
@@ -44,7 +56,7 @@ string Element::toString()
     //Close tag;
     result.append("</");
     result.append(_tagName);
-    result.push_back('>');
+    result.append(">");
     
     return result;
    
