@@ -6,28 +6,17 @@
 //  Copyright (c) 2015 Massimo Fazzolari. All rights reserved.
 //
 
-#include "parser.h"
+#include "html.h"
 #include <assert.h>
 #include "element.h"
 #include "text.h"
 #include <map>
 
-
-Parser::Parser()
-{
-    _pos = 0;
-    _input = "";
-}
-
-Parser::Parser(size_t pos, string input)
-{
-    _pos = pos;
-    _input = input;
-}
+namespace HTML {
 
 shared_ptr<DOM::Node> Parser::parse(string source)
 {
-    Parser parser(0,source);
+    Parser parser(source);
     vector<shared_ptr<DOM::Node>> nodes = parser.parse_nodes();
     
     
@@ -42,6 +31,12 @@ shared_ptr<DOM::Node> Parser::parse(string source)
     }
 }
 
+Parser::Parser(string input)
+{
+    _input = input;
+    _pos = 0;
+}
+    
 char Parser::next_char()
 {
     return _input[_pos];
@@ -133,9 +128,9 @@ shared_ptr<DOM::Node> Parser::parse_node()
         return parse_text();
 }
 
-Attribute Parser::parse_attr()
+DOM::Attribute Parser::parse_attr()
 {
-    Attribute attr;
+    DOM::Attribute attr;
     attr.name = parse_name();
     assert(consume_char() == '=');
     attr.value = parse_value();
@@ -164,7 +159,7 @@ map<string,string> Parser::parse_attributes()
         if (next_char() == '>') {
             break;
         }
-        Attribute attr = parse_attr();
+        DOM::Attribute attr = parse_attr();
         attributes[attr.name] = attr.value;
     }
     
@@ -184,4 +179,6 @@ vector<shared_ptr<DOM::Node>> Parser::parse_nodes()
     }
     
     return nodes;
+}
+    
 }

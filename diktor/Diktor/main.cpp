@@ -10,7 +10,7 @@
 #include "node.h"
 #include "element.h"
 #include "text.h"
-#include "parser.h"
+#include "html.h"
 
 using namespace std;
 
@@ -33,8 +33,8 @@ int main(int argc, const char * argv[]) {
     
     //Parse an html string (No root test)
     string html = "<header><title>Diktor</title></header><body><div id='test'>Hello World</div></body>";
-    Parser parser;
-    auto root = parser.parse(html);
+    
+    auto root = HTML::Parser::parse(html);
     
     cout << root->toString() << endl;
     
