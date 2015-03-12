@@ -22,6 +22,10 @@ namespace HTML {
     
     class Parser {
         
+    public:
+        // Parse an HTML document and return the root element.
+        static shared_ptr<DOM::Node> parse(string source);
+        
     private:
         size_t _pos;
         string _input;
@@ -29,7 +33,6 @@ namespace HTML {
         static bool is_whitespace(char c);
         static bool is_alpha_or_number(char c);
         
-    protected:
         char next_char();
         bool starts_with(string s);
         bool has_next();
@@ -62,11 +65,6 @@ namespace HTML {
         vector<shared_ptr<DOM::Node>> parse_nodes();
         
         Parser(string input);
-        
-    public:
-        
-        // Parse an HTML document and return the root element.
-        static shared_ptr<DOM::Node> parse(string source);
         
     };
 }
