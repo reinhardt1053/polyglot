@@ -26,7 +26,7 @@ public:
     Element(string tagName, map<string,string> attributes, vector<shared_ptr<Node>> children);
     Element(string tagName);
     
-    string toString() override;
+    string to_string() override;
     
     
 };

@@ -18,7 +18,7 @@ namespace DOM {
     class Node {
     public:
         vector<shared_ptr<Node>> children;
-        virtual string toString() = 0;
+        virtual string to_string() = 0;
     };
     
 }

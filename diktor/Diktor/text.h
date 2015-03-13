@@ -23,7 +23,7 @@ private:
 public:
     Text(string data);
     
-    string toString() override;
+    string to_string() override;
 };
 
 }

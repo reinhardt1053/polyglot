@@ -11,6 +11,7 @@
 #include "element.h"
 #include "text.h"
 #include "html.h"
+#include "css.h"
 
 using namespace std;
 
@@ -36,8 +37,15 @@ int main(int argc, const char * argv[]) {
     
     auto root = HTML::Parser::parse(html);
     
-    cout << root->toString() << endl;
+    cout << root->to_string() << endl;
     
+    
+    //Parse a css string
+    string css = "h1, h2, h3 { font-family: serif; text-align: center; } p.center { text-align: center; color: #FF03A1; }";
+
+    auto stylesheet = CSS::Parser::parse(css);
+    
+    cout << stylesheet->to_string() << endl;
     
     return 0;
 }

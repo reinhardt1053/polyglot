@@ -15,7 +15,7 @@ Text::Text(string data)
     _data = data;
 }
  
-string Text::toString()
+string Text::to_string()
 {
     return _data;
 }

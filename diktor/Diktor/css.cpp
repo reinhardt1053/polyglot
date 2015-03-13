@@ -8,6 +8,8 @@
 
 #include "css.h"
 #include <assert.h>
+#include <algorithm>
+#include <string>
 
 namespace CSS {
 
@@ -65,7 +67,7 @@ namespace CSS {
     
     void Parser::consume_whitespaces()
     {
-        auto is_whitespace = [](char c) { return isspace(c); };
+        auto is_whitespace = [](char c) -> bool { return isspace(c); };
         consume_while(is_whitespace);
     }
     
@@ -96,9 +98,16 @@ namespace CSS {
                     consume_char();
                     selector->classes.push_back(parse_identifier());
                     break;
+                case '*':
+                    //universal selector
+                    consume_char();
                 default:
                     if (is_valid_identifier_char(c)){
                         selector->tag_name = parse_identifier();
+                    }
+                    else
+                    {
+                        return selector;
                     }
                     break;
             }
@@ -106,6 +115,18 @@ namespace CSS {
         
         return selector;
     }
+    
+    vector<shared_ptr<Rule>> Parser::parse_rules()
+    {
+        vector<shared_ptr<Rule>> rules;
+        while (true) {
+            consume_whitespaces();
+            if (!has_next_char()) break;
+            rules.push_back(parse_rule());
+        }
+        return rules;
+    }
+    
     
     // Parse a rule set: `<selectors> { <declarations> }`.
     shared_ptr<Rule> Parser::parse_rule()
@@ -123,6 +144,7 @@ namespace CSS {
         bool start_of_declarations = false;
         while (!start_of_declarations) {
             auto selector = parse_simple_selector();
+            selectors.push_back(selector);
             consume_whitespaces();
             switch (char c = next_char()) {
                 case ',':
@@ -179,7 +201,7 @@ namespace CSS {
     {
         char c = next_char();
         
-        if (isalnum(c))
+        if (isnumber(c))
             return parse_length();
         else if (c == '#')
             return parse_color();
@@ -187,5 +209,189 @@ namespace CSS {
             return parse_keyword();
     }
     
+    shared_ptr<Value> Parser::parse_length()
+    {
+        auto length = make_shared<Length>();
+        length->value = parse_float();
+        length->unit = parse_unit();
+        
+        return length;
+    }
     
+    float Parser::parse_float()
+    {
+        auto is_float_number_char = [] (char c) -> bool {
+            if (isnumber(c) || c == '.') return true;
+            else return false;
+        };
+        
+        auto float_str = consume_while(is_float_number_char);
+        return atof(float_str.c_str());
+    }
+    
+    Unit Parser::parse_unit()
+    {
+        auto identifier = parse_identifier();
+        
+        //Lower case the identifier (e.g. "Px" to "px")
+        transform(identifier.begin(), identifier.end(),
+                  identifier.begin(), toupper);
+        
+        if (identifier == "px")
+            return Unit::PX;
+        else if (identifier == "cm")
+            return Unit::CM;
+        else
+            assert(false);
+    }
+    
+    shared_ptr<Value> Parser::parse_color()
+    {
+        assert(consume_char() == '#');
+        
+        auto color = make_shared<Color>();
+        
+        color->r = parse_hex_pair();
+        color->g = parse_hex_pair();
+        color->b = parse_hex_pair();
+        color->a = 255;
+        
+        return color;  
+    }
+    
+    // Convert from Hex to Decimal
+    unsigned int Parser::parse_hex_pair()
+    {
+        auto hexstr = _input.substr(_pos, 2);
+        _pos +=2;
+        
+        //Convert an HEX string to an unsigned int (es. FF -> 255)
+        return static_cast<unsigned int>(strtoul(hexstr.c_str(), NULL, 16));
+    }
+    
+    shared_ptr<Value> Parser::parse_keyword()
+    {
+        auto keyword = make_shared<Keyword>();
+        keyword->value = parse_identifier();
+        return keyword;
+    }
+    
+    shared_ptr<Stylesheet> Parser::parse(string source)
+    {
+        Parser parser(source);
+        auto stylesheet = make_shared<Stylesheet>();
+        stylesheet->rules = parser.parse_rules();
+        return stylesheet;
+    }
+    
+    string Stylesheet::to_string()
+    {
+        string result;
+        for(auto rule : rules)
+        {
+            result.append(rule->to_string());
+        }
+        return result;
+    }
+    
+    string Rule::to_string()
+    {
+        string result;
+        
+        //Selectors
+        bool append_comma = false;
+        for (auto selector : selectors){
+            if (append_comma) result.append(",");
+            result.append(selector->to_string());
+            append_comma = true;
+        }
+        result.append(" {");
+        
+        //Declarations
+        for (auto declaration : declarations) {
+            result.append(declaration->to_string());
+        }
+        
+        result.append("} ");
+        return result;
+    }
+    
+    string SimpleSelector::to_string()
+    {
+        string result;
+        
+        //Tag name
+        if (!tag_name.empty()){
+            result.append(tag_name);
+        }
+        
+        //Id
+        if (!id.empty()){
+            result.append("#");
+            result.append(id);
+        }
+        
+        //Classes
+        for (auto className : classes){
+            result.append(".");
+            result.append(className);
+        }
+        
+        return result;
+    }
+    
+    string Declaration::to_string()
+    {
+        string result;
+        
+        //Property name
+        result.append(name);
+        result.append(":");
+        result.append(value->to_string());
+        result.append(";");
+        
+        return result;
+    }
+    
+    string Keyword::to_string()
+    {
+        return value;
+    }
+    
+    string Length::to_string()
+    {
+        string result;
+        
+        result.append(std::to_string(value));
+        
+        switch (unit) {
+            case PX:
+                result.append("px");
+                break;
+            case CM:
+                result.append("cm");
+                break;
+            default:
+                assert(false);
+                break;
+        }
+        
+        return result;
+    }
+    
+    string Color::to_string()
+    {
+        string result;
+        result.append("rgb(");
+        result.append(std::to_string(r));
+        result.append(",");
+        result.append(std::to_string(g));
+        result.append(",");
+        result.append(std::to_string(b));
+        result.append(")");
+        
+        return result;
+    }
+    
+
 }

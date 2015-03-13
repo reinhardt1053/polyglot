@@ -20,22 +20,26 @@ namespace CSS
 {
     class Value
     {
-        
+    public:
+        virtual string to_string() = 0;
     };
     
     class Keyword : public Value
     {
     public:
         string value;
+        string to_string() override;
     };
     
-    enum Unit { PX, CM, MM, EM };
+    enum Unit { PX, CM };
     
     class Length : public Value
     {
     public:
         float value;
         Unit unit;
+        
+        string to_string() override;
     };
     
     class Color: public Value
@@ -45,6 +49,8 @@ namespace CSS
         unsigned int g;
         unsigned int b;
         unsigned int a;
+        
+        string to_string() override;
     };
     
     class Declaration
@@ -52,6 +58,8 @@ namespace CSS
     public:
         string name;
         shared_ptr<Value> value;
+        
+        string to_string();
     };
     
     // http://www.w3.org/TR/selectors/#specificity
@@ -67,6 +75,7 @@ namespace CSS
     {
     public:
         virtual Specificity specificity() = 0;
+        virtual string to_string() = 0;
     };
     
     class SimpleSelector : public Selector
@@ -78,6 +87,7 @@ namespace CSS
         vector<string> classes;
         
         Specificity specificity() override;
+        string to_string() override;
     };
     
     class Rule
@@ -85,18 +95,20 @@ namespace CSS
     public:
         vector<shared_ptr<Selector>> selectors;
         vector<shared_ptr<Declaration>> declarations;
+        string to_string();
     };
     
     class Stylesheet
     {
     public:
         vector<shared_ptr<Rule>> rules;
+        string to_string();
     };
-    
-
     
     class Parser
     {
+    public:
+        static shared_ptr<Stylesheet> parse(string source);
         
     private:
         size_t _pos;
@@ -109,15 +121,19 @@ namespace CSS
         string consume_while(function<bool(char)> test);
         void consume_whitespaces();
         
+        // Parse a list of rule sets, separated by optional whitespace.
+        vector<shared_ptr<Rule>> parse_rules();
+        
+        // Parse a rule set: `<selectors> { <declarations> }`.
+        shared_ptr<Rule> parse_rule();
+        
         // Parse one simple selector, e.g.: `type#id.class1.class2.class3`
         shared_ptr<SimpleSelector> parse_simple_selector();
         
         // Parse one `<property>: <value>;` declaration.
         shared_ptr<Declaration> parse_declaration();
         
-        // Parse a rule set: `<selectors> { <declarations> }`.
-        shared_ptr<Rule> parse_rule();
-        
+
         // Parse a comma-separated list of selectors.
         vector<shared_ptr<Selector>> parse_selectors();
         vector<shared_ptr<Declaration>> parse_declarations();
@@ -126,6 +142,9 @@ namespace CSS
         static bool is_valid_identifier_char(char c);
         
         string parse_identifier();
+ 
+        float parse_float();
+        Unit parse_unit();
         
         //Methods for parsing values:
         shared_ptr<Value> parse_value();
@@ -133,6 +152,8 @@ namespace CSS
         shared_ptr<Value> parse_color();
         shared_ptr<Value> parse_keyword();
         
+
+        unsigned int parse_hex_pair();
         
         Parser(string input);
     };

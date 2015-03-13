@@ -25,7 +25,7 @@ Element::Element(string tagName)
 }
 
     
-string Element::toString()
+string Element::to_string()
 {
     string result;
     
@@ -50,7 +50,7 @@ string Element::toString()
     //Children
     for (auto child : this->children)
     {
-        result.append(child->toString());
+        result.append(child->to_string());
     }
     
     //Close tag;
