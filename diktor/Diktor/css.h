@@ -62,19 +62,10 @@ namespace CSS
         string to_string();
     };
     
-    // http://www.w3.org/TR/selectors/#specificity
-    class Specificity
-    {
-    public:
-        size_t a;
-        size_t b;
-        size_t c;
-    };
-    
     class Selector
     {
     public:
-        virtual Specificity specificity() = 0;
+        virtual unsigned int specificity() = 0;
         virtual string to_string() = 0;
     };
     
@@ -86,7 +77,7 @@ namespace CSS
         string id;
         vector<string> classes;
         
-        Specificity specificity() override;
+        unsigned int specificity() override;
         string to_string() override;
     };
     
@@ -136,6 +127,8 @@ namespace CSS
 
         // Parse a comma-separated list of selectors.
         vector<shared_ptr<Selector>> parse_selectors();
+        
+        // Parse a list of declarations enclosed in `{ ... }`.
         vector<shared_ptr<Declaration>> parse_declarations();
         
         
@@ -154,6 +147,8 @@ namespace CSS
         
 
         unsigned int parse_hex_pair();
+        
+        static bool selector_greater(shared_ptr<Selector> a, shared_ptr<Selector> b);
         
         Parser(string input);
     };
