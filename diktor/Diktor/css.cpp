@@ -14,15 +14,13 @@
 namespace CSS {
 
     //http://www.w3.org/TR/selectors/#specificity
-    Specificity SimpleSelector::specificity()
+    unsigned int SimpleSelector::specificity()
     {
-        Specificity specificity;
+        string a = (id.empty() ? "0" : "1");
+        string b = std::to_string(classes.size());
+        string c = (tag_name.empty() ? "0" : "1");
         
-        specificity.a = (id.empty() ? 0 : 1);
-        specificity.b = classes.size();
-        specificity.c = (tag_name.empty() ? 0 : 1);
-        
-        return specificity;
+        return stoi(a+b+c);
     }
     
     Parser::Parser(string input)
@@ -137,6 +135,12 @@ namespace CSS {
         return rule;
     }
     
+    //Return true if Selector A specificity is greater then  Selector B specificity
+    bool Parser::selector_greater(shared_ptr<Selector> a, shared_ptr<Selector> b)
+    {
+        return a->specificity() > b->specificity();
+    }
+    
     // Parse a comma-separated list of selectors.
     vector<shared_ptr<Selector>> Parser::parse_selectors()
     {
@@ -160,6 +164,8 @@ namespace CSS {
             }
         }
         
+        // Selectors with higher specificity comes first
+        sort(selectors.begin(), selectors.end(), selector_greater );
         return selectors;
     }
     
