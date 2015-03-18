@@ -73,7 +73,7 @@
 		4D543DB61A4B443F00EB9C51 /* Diktor */ = {
 			isa = PBXGroup;
 			children = (
-				4D748F2F1AB9BAA60016D484 /* DOM */,
+				4D748F2F1AB9BAA60016D484 /* dom */,
 				4DDF3C821AB17A6C00D1E41F /* css.h */,
 				4DDF3C841AB1DF3900D1E41F /* css.cpp */,
 				4DDF3C7F1AB0335000D1E41F /* html.h */,
@@ -84,7 +84,7 @@
 			path = Example1;
 			sourceTree = "<group>";
 		};
-		4D748F2F1AB9BAA60016D484 /* DOM */ = {
+		4D748F2F1AB9BAA60016D484 /* dom */ = {
 			isa = PBXGroup;
 			children = (
 				4D748F331AB9BAD80016D484 /* attribute.h */,
@@ -95,7 +95,7 @@
 				4D748F301AB9BAA60016D484 /* node.cpp */,
 				4D748F311AB9BAA60016D484 /* node.h */,
 			);
-			name = DOM;
+			name = dom;
 			path = Diktor/DOM;
 			sourceTree = SOURCE_ROOT;
 		};

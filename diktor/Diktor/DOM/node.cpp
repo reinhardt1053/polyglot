@@ -9,6 +9,6 @@
 #include "node.h"
 #include <iostream>
 
-namespace DOM {
+namespace dom {
 
 }

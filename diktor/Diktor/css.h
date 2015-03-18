@@ -16,7 +16,7 @@
 
 using namespace std;
 
-namespace CSS
+namespace css
 {
     class Value
     {

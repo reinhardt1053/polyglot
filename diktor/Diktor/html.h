@@ -14,18 +14,18 @@
 #include <functional>
 #include <map>
 
-#include "DOM/node.h"
-#include "DOM/attribute.h"
+#include "dom/node.h"
+#include "dom/attribute.h"
 
 using namespace std;
 
-namespace HTML {
+namespace html {
     
     class Parser {
         
     public:
         // Parse an HTML document and return the root element.
-        static shared_ptr<DOM::Node> parse(string source);
+        static shared_ptr<dom::Node> parse(string source);
         
     private:
         size_t _pos;
@@ -48,22 +48,22 @@ namespace HTML {
         string parse_value();
         
         // Parse a text node
-        shared_ptr<DOM::Node> parse_text();
+        shared_ptr<dom::Node> parse_text();
         
         // Parse a single element node, including its open tag, content, and closing tag
-        shared_ptr<DOM::Node> parse_element();
+        shared_ptr<dom::Node> parse_element();
         
         // Parse a single node
-        shared_ptr<DOM::Node> parse_node();
+        shared_ptr<dom::Node> parse_node();
         
         // Parse a single name="value" pair
-        DOM::Attribute parse_attr();
+        dom::Attribute parse_attr();
         
         // Parse a list of name="value" pairs, separated by whitespace.
         map<string,string> parse_attributes();
         
         //Parse a sequence of sibling nodes
-        vector<shared_ptr<DOM::Node>> parse_nodes();
+        vector<shared_ptr<dom::Node>> parse_nodes();
         
         Parser(string input);
         

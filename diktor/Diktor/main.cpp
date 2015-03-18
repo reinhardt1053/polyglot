@@ -7,9 +7,10 @@
 //
 
 #include <iostream>
-#include "node.h"
-#include "element.h"
-#include "text.h"
+
+#include "dom/node.h"
+#include "dom/element.h"
+#include "dom/text.h"
 #include "html.h"
 #include "css.h"
 
@@ -17,25 +18,22 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     
-    /*
-    
     //Build the DOM tree programmatically
 
-    auto root = make_shared<DOM::Element>("html");
-    auto body = make_shared<DOM::Element>("body");
-    auto text = make_shared<DOM::Text>("Hello World");
+    auto html = make_shared<dom::Element>("html");
+    auto body = make_shared<dom::Element>("body");
+    auto text = make_shared<dom::Text>("Hello World");
     
-    root->children.push_back(body);
+    html->children.push_back(body);
     body->children.push_back(text);
     
-    cout << root->toString() << endl;
-    */
+    cout << html->to_string() << endl;
     
     
-    //Parse an html string (No root test)
-    string html = "<header><title>Diktor</title></header><body><div id='test'>Hello World</div></body>";
+    //Parse an html string
+    string html_str = "<header><title>Diktor</title></header><body><div id='test'>Hello World</div></body>";
     
-    auto root = HTML::Parser::parse(html);
+    auto root = html::Parser::parse(html_str);
     
     cout << root->to_string() << endl;
     
@@ -43,7 +41,7 @@ int main(int argc, const char * argv[]) {
     //Parse a css string
     string css = "h1, h2, h3 { font-family: serif; text-align: center; } p.center { text-align: center; color: #FF03A1; }";
 
-    auto stylesheet = CSS::Parser::parse(css);
+    auto stylesheet = css::Parser::parse(css);
     
     cout << stylesheet->to_string() << endl;
     

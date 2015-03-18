@@ -14,7 +14,7 @@
 #include <map>
 #include <vector>
 
-namespace DOM {
+namespace dom {
 
 class Element : public Node
 {

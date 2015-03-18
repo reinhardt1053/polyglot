@@ -9,7 +9,7 @@
 #ifndef ATTRIBUTE_H
 #define ATTRIBUTE_H
 
-namespace DOM {
+namespace dom {
     
     class Attribute {
     public:

@@ -13,7 +13,7 @@
 
 using namespace std;
 
-namespace DOM {
+namespace dom {
     
     class Node {
     public:

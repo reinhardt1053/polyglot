@@ -14,12 +14,12 @@
 #include "DOM/text.h"
 #include "html.h"
 
-namespace HTML {
+namespace html {
 
-shared_ptr<DOM::Node> Parser::parse(string source)
+shared_ptr<dom::Node> Parser::parse(string source)
 {
     Parser parser(source);
-    vector<shared_ptr<DOM::Node>> nodes = parser.parse_nodes();
+    vector<shared_ptr<dom::Node>> nodes = parser.parse_nodes();
     
     
     // If the document contains a root element, just return it. Otherwise, create one.
@@ -28,7 +28,7 @@ shared_ptr<DOM::Node> Parser::parse(string source)
     else
     {
         map<string,string> root_attrs;
-        auto root = make_shared<DOM::Element>("html",root_attrs, nodes);
+        auto root = make_shared<dom::Element>("html",root_attrs, nodes);
         return root;
     }
 }
@@ -94,13 +94,13 @@ string Parser::parse_name()
     return consume_while(is_alpha_or_number);
 }
 
-shared_ptr<DOM::Node> Parser::parse_text()
+shared_ptr<dom::Node> Parser::parse_text()
 {
     auto is_not_open_tag = [](char c) -> bool { return c != '<'; } ;
-    return make_shared<DOM::Text>(consume_while(is_not_open_tag));
+    return make_shared<dom::Text>(consume_while(is_not_open_tag));
 }
 
-shared_ptr<DOM::Node> Parser::parse_element()
+shared_ptr<dom::Node> Parser::parse_element()
 {
     //Opening tag
     assert(consume_char() == '<');
@@ -111,7 +111,7 @@ shared_ptr<DOM::Node> Parser::parse_element()
     assert(consume_char() == '>');
     
     //Content
-    vector<shared_ptr<DOM::Node>> children = parse_nodes();
+    vector<shared_ptr<dom::Node>> children = parse_nodes();
     
     //Closing tag
     assert(consume_char() == '<');
@@ -119,10 +119,10 @@ shared_ptr<DOM::Node> Parser::parse_element()
     assert(parse_name() == tag_name);
     assert(consume_char() == '>');
     
-    return make_shared<DOM::Element>(tag_name, attrs, children);
+    return make_shared<dom::Element>(tag_name, attrs, children);
 }
 
-shared_ptr<DOM::Node> Parser::parse_node()
+shared_ptr<dom::Node> Parser::parse_node()
 {
     if (next_char() == '<')
         return parse_element();
@@ -130,9 +130,9 @@ shared_ptr<DOM::Node> Parser::parse_node()
         return parse_text();
 }
 
-DOM::Attribute Parser::parse_attr()
+dom::Attribute Parser::parse_attr()
 {
-    DOM::Attribute attr;
+    dom::Attribute attr;
     attr.name = parse_name();
     assert(consume_char() == '=');
     attr.value = parse_value();
@@ -161,16 +161,16 @@ map<string,string> Parser::parse_attributes()
         if (next_char() == '>') {
             break;
         }
-        DOM::Attribute attr = parse_attr();
+        dom::Attribute attr = parse_attr();
         attributes[attr.name] = attr.value;
     }
     
     return attributes;
 }
 
-vector<shared_ptr<DOM::Node>> Parser::parse_nodes()
+vector<shared_ptr<dom::Node>> Parser::parse_nodes()
 {
-    vector<shared_ptr<DOM::Node>> nodes;
+    vector<shared_ptr<dom::Node>> nodes;
     
     while (true){
         consume_whitespaces();

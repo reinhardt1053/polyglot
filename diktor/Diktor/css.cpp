@@ -12,7 +12,7 @@
 
 #include "css.h"
 
-namespace CSS {
+namespace css {
 
     //http://www.w3.org/TR/selectors/#specificity
     unsigned int SimpleSelector::specificity()

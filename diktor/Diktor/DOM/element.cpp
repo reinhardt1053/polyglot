@@ -9,7 +9,7 @@
 #include "element.h"
 #include <iostream>
 
-namespace DOM {
+namespace dom {
 
 Element::Element(string tagName, map<string,string> attributes, vector<shared_ptr<Node>> children)
 {

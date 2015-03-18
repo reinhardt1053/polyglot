@@ -8,7 +8,7 @@
 
 #include "text.h"
 
-namespace DOM {
+namespace dom {
 
 Text::Text(string data)
 {

@@ -13,7 +13,7 @@
 #include <string>
 #include <iostream>
 
-namespace DOM {
+namespace dom {
 
 class Text : public Node
 {
