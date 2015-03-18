@@ -11,10 +11,11 @@
 
 #include <stdlib.h>
 #include <string>
-#include "node.h"
-#include "attribute.h"
 #include <functional>
 #include <map>
+
+#include "DOM/node.h"
+#include "DOM/attribute.h"
 
 using namespace std;
 

@@ -6,11 +6,13 @@
 //  Copyright (c) 2015 Massimo Fazzolari. All rights reserved.
 //
 
-#include "html.h"
+
 #include <assert.h>
-#include "element.h"
-#include "text.h"
 #include <map>
+
+#include "DOM/element.h"
+#include "DOM/text.h"
+#include "html.h"
 
 namespace HTML {
 

@@ -6,10 +6,11 @@
 //  Copyright (c) 2015 Massimo Fazzolari. All rights reserved.
 //
 
-#include "css.h"
 #include <assert.h>
 #include <algorithm>
 #include <string>
+
+#include "css.h"
 
 namespace CSS {
 
