@@ -36,6 +36,7 @@
 		4D748F351AB9BAD80016D484 /* element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = element.h; sourceTree = "<group>"; };
 		4D748F361AB9BAD80016D484 /* text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = text.cpp; sourceTree = "<group>"; };
 		4D748F371AB9BAD80016D484 /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = text.h; sourceTree = "<group>"; };
+		4D748F3D1AB9CE5A0016D484 /* frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = frame.h; sourceTree = "<group>"; };
 		4D827DAF1AA9B5BC00ADE84A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Diktor/main.cpp; sourceTree = SOURCE_ROOT; };
 		4DDF3C7E1AB0335000D1E41F /* html.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = html.cpp; path = Diktor/html.cpp; sourceTree = SOURCE_ROOT; };
 		4DDF3C7F1AB0335000D1E41F /* html.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = html.h; path = Diktor/html.h; sourceTree = SOURCE_ROOT; };
@@ -73,6 +74,7 @@
 		4D543DB61A4B443F00EB9C51 /* Diktor */ = {
 			isa = PBXGroup;
 			children = (
+				4D748F3C1AB9CE5A0016D484 /* layout */,
 				4D748F2F1AB9BAA60016D484 /* dom */,
 				4DDF3C821AB17A6C00D1E41F /* css.h */,
 				4DDF3C841AB1DF3900D1E41F /* css.cpp */,
@@ -97,6 +99,15 @@
 			);
 			name = dom;
 			path = Diktor/DOM;
+			sourceTree = SOURCE_ROOT;
+		};
+		4D748F3C1AB9CE5A0016D484 /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				4D748F3D1AB9CE5A0016D484 /* frame.h */,
+			);
+			name = layout;
+			path = Diktor/layout;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -245,6 +256,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = Diktor;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Diktor";
 			};
 			name = Debug;
 		};
@@ -252,6 +264,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = Diktor;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Diktor";
 			};
 			name = Release;
 		};
