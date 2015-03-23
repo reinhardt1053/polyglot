@@ -10,20 +10,11 @@
 #include <algorithm>
 #include <string>
 
-#include "css.h"
+#include "css/parser.h"
+#include "css/stylesheet.h"
 
 namespace css {
 
-    //http://www.w3.org/TR/selectors/#specificity
-    unsigned int SimpleSelector::specificity()
-    {
-        string a = (id.empty() ? "0" : "1");
-        string b = std::to_string(classes.size());
-        string c = (tag_name.empty() ? "0" : "1");
-        
-        return stoi(a+b+c);
-    }
-    
     Parser::Parser(string input)
     {
         _input = input;
@@ -290,115 +281,4 @@ namespace css {
         stylesheet->rules = parser.parse_rules();
         return stylesheet;
     }
-    
-    string Stylesheet::to_string()
-    {
-        string result;
-        for(auto rule : rules)
-        {
-            result.append(rule->to_string());
-        }
-        return result;
-    }
-    
-    string Rule::to_string()
-    {
-        string result;
-        
-        //Selectors
-        bool append_comma = false;
-        for (auto selector : selectors){
-            if (append_comma) result.append(",");
-            result.append(selector->to_string());
-            append_comma = true;
-        }
-        result.append(" {");
-        
-        //Declarations
-        for (auto declaration : declarations) {
-            result.append(declaration->to_string());
-        }
-        
-        result.append("} ");
-        return result;
-    }
-    
-    string SimpleSelector::to_string()
-    {
-        string result;
-        
-        //Tag name
-        if (!tag_name.empty()){
-            result.append(tag_name);
-        }
-        
-        //Id
-        if (!id.empty()){
-            result.append("#");
-            result.append(id);
-        }
-        
-        //Classes
-        for (auto className : classes){
-            result.append(".");
-            result.append(className);
-        }
-        
-        return result;
-    }
-    
-    string Declaration::to_string()
-    {
-        string result;
-        
-        //Property name
-        result.append(name);
-        result.append(":");
-        result.append(value->to_string());
-        result.append(";");
-        
-        return result;
-    }
-    
-    string Keyword::to_string()
-    {
-        return value;
-    }
-    
-    string Length::to_string()
-    {
-        string result;
-        
-        result.append(std::to_string(value));
-        
-        switch (unit) {
-            case PX:
-                result.append("px");
-                break;
-            case CM:
-                result.append("cm");
-                break;
-            default:
-                assert(false);
-                break;
-        }
-        
-        return result;
-    }
-    
-    string Color::to_string()
-    {
-        string result;
-        result.append("rgb(");
-        result.append(std::to_string(r));
-        result.append(",");
-        result.append(std::to_string(g));
-        result.append(",");
-        result.append(std::to_string(b));
-        result.append(")");
-        
-        return result;
-    }
-    
-
 }

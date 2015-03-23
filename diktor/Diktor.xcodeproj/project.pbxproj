@@ -10,9 +10,14 @@
 		4D748F321AB9BAA60016D484 /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D748F301AB9BAA60016D484 /* node.cpp */; };
 		4D748F381AB9BAD80016D484 /* element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D748F341AB9BAD80016D484 /* element.cpp */; };
 		4D748F391AB9BAD80016D484 /* text.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D748F361AB9BAD80016D484 /* text.cpp */; };
+		4D748F441ABC0DA10016D484 /* value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D748F431ABC0DA10016D484 /* value.cpp */; };
+		4D748F471ABC15BC0016D484 /* stylesheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D748F451ABC15BC0016D484 /* stylesheet.cpp */; };
+		4D748F4A1ABC1AE30016D484 /* rule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D748F481ABC1AE30016D484 /* rule.cpp */; };
 		4D827DB51AA9B5BC00ADE84A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D827DAF1AA9B5BC00ADE84A /* main.cpp */; };
-		4DDF3C801AB0335000D1E41F /* html.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DDF3C7E1AB0335000D1E41F /* html.cpp */; };
-		4DDF3C851AB1DF3900D1E41F /* css.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DDF3C841AB1DF3900D1E41F /* css.cpp */; };
+		4DBFCB141ABDE437001022C0 /* declaration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DBFCB121ABDE437001022C0 /* declaration.cpp */; };
+		4DBFCB171ABDE4AD001022C0 /* selector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DBFCB151ABDE4AD001022C0 /* selector.cpp */; };
+		4DBFCB211AC027B4001022C0 /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DBFCB1F1AC027B4001022C0 /* parser.cpp */; };
+		4DBFCB271AC02CA2001022C0 /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DBFCB251AC02CA2001022C0 /* parser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,11 +42,21 @@
 		4D748F361AB9BAD80016D484 /* text.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = text.cpp; sourceTree = "<group>"; };
 		4D748F371AB9BAD80016D484 /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = text.h; sourceTree = "<group>"; };
 		4D748F3D1AB9CE5A0016D484 /* frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = frame.h; sourceTree = "<group>"; };
+		4D748F421ABC0D1E0016D484 /* value.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = value.h; sourceTree = "<group>"; };
+		4D748F431ABC0DA10016D484 /* value.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = value.cpp; sourceTree = "<group>"; };
+		4D748F451ABC15BC0016D484 /* stylesheet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stylesheet.cpp; sourceTree = "<group>"; };
+		4D748F461ABC15BC0016D484 /* stylesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stylesheet.h; sourceTree = "<group>"; };
+		4D748F481ABC1AE30016D484 /* rule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rule.cpp; sourceTree = "<group>"; };
+		4D748F491ABC1AE30016D484 /* rule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rule.h; sourceTree = "<group>"; };
 		4D827DAF1AA9B5BC00ADE84A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Diktor/main.cpp; sourceTree = SOURCE_ROOT; };
-		4DDF3C7E1AB0335000D1E41F /* html.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = html.cpp; path = Diktor/html.cpp; sourceTree = SOURCE_ROOT; };
-		4DDF3C7F1AB0335000D1E41F /* html.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = html.h; path = Diktor/html.h; sourceTree = SOURCE_ROOT; };
-		4DDF3C821AB17A6C00D1E41F /* css.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = css.h; path = Diktor/css.h; sourceTree = SOURCE_ROOT; };
-		4DDF3C841AB1DF3900D1E41F /* css.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = css.cpp; path = Diktor/css.cpp; sourceTree = SOURCE_ROOT; };
+		4DBFCB121ABDE437001022C0 /* declaration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = declaration.cpp; sourceTree = "<group>"; };
+		4DBFCB131ABDE437001022C0 /* declaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = declaration.h; sourceTree = "<group>"; };
+		4DBFCB151ABDE4AD001022C0 /* selector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = selector.cpp; sourceTree = "<group>"; };
+		4DBFCB161ABDE4AD001022C0 /* selector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selector.h; sourceTree = "<group>"; };
+		4DBFCB1F1AC027B4001022C0 /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser.cpp; sourceTree = "<group>"; };
+		4DBFCB201AC027B4001022C0 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
+		4DBFCB251AC02CA2001022C0 /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parser.cpp; path = Diktor/dom/parser.cpp; sourceTree = SOURCE_ROOT; };
+		4DBFCB261AC02CA2001022C0 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parser.h; path = Diktor/dom/parser.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,12 +89,9 @@
 		4D543DB61A4B443F00EB9C51 /* Diktor */ = {
 			isa = PBXGroup;
 			children = (
+				4D748F3E1ABC0CD60016D484 /* css */,
 				4D748F3C1AB9CE5A0016D484 /* layout */,
 				4D748F2F1AB9BAA60016D484 /* dom */,
-				4DDF3C821AB17A6C00D1E41F /* css.h */,
-				4DDF3C841AB1DF3900D1E41F /* css.cpp */,
-				4DDF3C7F1AB0335000D1E41F /* html.h */,
-				4DDF3C7E1AB0335000D1E41F /* html.cpp */,
 				4D827DAF1AA9B5BC00ADE84A /* main.cpp */,
 			);
 			name = Diktor;
@@ -89,6 +101,8 @@
 		4D748F2F1AB9BAA60016D484 /* dom */ = {
 			isa = PBXGroup;
 			children = (
+				4DBFCB251AC02CA2001022C0 /* parser.cpp */,
+				4DBFCB261AC02CA2001022C0 /* parser.h */,
 				4D748F331AB9BAD80016D484 /* attribute.h */,
 				4D748F341AB9BAD80016D484 /* element.cpp */,
 				4D748F351AB9BAD80016D484 /* element.h */,
@@ -108,6 +122,26 @@
 			);
 			name = layout;
 			path = Diktor/layout;
+			sourceTree = SOURCE_ROOT;
+		};
+		4D748F3E1ABC0CD60016D484 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				4DBFCB1F1AC027B4001022C0 /* parser.cpp */,
+				4DBFCB201AC027B4001022C0 /* parser.h */,
+				4D748F421ABC0D1E0016D484 /* value.h */,
+				4D748F431ABC0DA10016D484 /* value.cpp */,
+				4D748F451ABC15BC0016D484 /* stylesheet.cpp */,
+				4D748F461ABC15BC0016D484 /* stylesheet.h */,
+				4D748F481ABC1AE30016D484 /* rule.cpp */,
+				4D748F491ABC1AE30016D484 /* rule.h */,
+				4DBFCB121ABDE437001022C0 /* declaration.cpp */,
+				4DBFCB131ABDE437001022C0 /* declaration.h */,
+				4DBFCB151ABDE4AD001022C0 /* selector.cpp */,
+				4DBFCB161ABDE4AD001022C0 /* selector.h */,
+			);
+			name = css;
+			path = Diktor/css;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -166,11 +200,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DDF3C801AB0335000D1E41F /* html.cpp in Sources */,
+				4D748F441ABC0DA10016D484 /* value.cpp in Sources */,
+				4DBFCB171ABDE4AD001022C0 /* selector.cpp in Sources */,
+				4D748F471ABC15BC0016D484 /* stylesheet.cpp in Sources */,
+				4DBFCB211AC027B4001022C0 /* parser.cpp in Sources */,
+				4DBFCB271AC02CA2001022C0 /* parser.cpp in Sources */,
+				4DBFCB141ABDE437001022C0 /* declaration.cpp in Sources */,
+				4D748F4A1ABC1AE30016D484 /* rule.cpp in Sources */,
 				4D827DB51AA9B5BC00ADE84A /* main.cpp in Sources */,
 				4D748F391AB9BAD80016D484 /* text.cpp in Sources */,
 				4D748F381AB9BAD80016D484 /* element.cpp in Sources */,
-				4DDF3C851AB1DF3900D1E41F /* css.cpp in Sources */,
 				4D748F321AB9BAA60016D484 /* node.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

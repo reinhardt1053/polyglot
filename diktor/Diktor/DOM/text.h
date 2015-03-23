@@ -6,27 +6,21 @@
 //  Copyright (c) 2015 Massimo Fazzolari. All rights reserved.
 //
 
-#ifndef TEXT_H
-#define TEXT_H
+#pragma once
 
 #include "node.h"
 #include <string>
 #include <iostream>
 
 namespace dom {
-
-class Text : public Node
-{
-private:
-    string _data;
-
-public:
-    Text(string data);
-    
-    string to_string() override;
-};
-
+    class Text : public Node
+    {
+    private:
+        string _data;
+        
+    public:
+        Text(string data);
+        
+        string to_string() override;
+    };
 }
-
-
-#endif

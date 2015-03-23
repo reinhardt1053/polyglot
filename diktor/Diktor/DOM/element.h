@@ -6,8 +6,7 @@
 //  Copyright (c) 2015 Massimo Fazzolari. All rights reserved.
 //
 
-#ifndef ELEMENT_H
-#define ELEMENT_H
+#pragma once
 
 #include "node.h"
 #include <string>
@@ -15,24 +14,17 @@
 #include <vector>
 
 namespace dom {
-
-class Element : public Node
-{
-private:
-    string _tagName;
-    map<string, string> _attributes;
-    
-public:
-    Element(string tagName, map<string,string> attributes, vector<shared_ptr<Node>> children);
-    Element(string tagName);
-    
-    string to_string() override;
-    
-    
-};
-
-    
+    class Element : public Node
+    {
+    private:
+        string _tagName;
+        map<string, string> _attributes;
+        
+    public:
+        Element(string tagName, map<string,string> attributes, vector<shared_ptr<Node>> children);
+        Element(string tagName);
+        
+        string to_string() override;
+    };
 }
 
-
-#endif

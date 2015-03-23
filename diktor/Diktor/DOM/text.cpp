@@ -9,17 +9,15 @@
 #include "text.h"
 
 namespace dom {
-
-Text::Text(string data)
-{
-    _data = data;
-}
- 
-string Text::to_string()
-{
-    return _data;
-}
-
+    Text::Text(string data)
+    {
+        _data = data;
+    }
+    
+    string Text::to_string()
+    {
+        return _data;
+    }
 }
 
 

@@ -6,8 +6,7 @@
 //  Copyright (c) 2015 Massimo Fazzolari. All rights reserved.
 //
 
-#ifndef _HTML_H
-#define _HTML_H
+#pragma once
 
 #include <stdlib.h>
 #include <string>
@@ -19,7 +18,7 @@
 
 using namespace std;
 
-namespace html {
+namespace dom {
     
     class Parser {
         
@@ -70,4 +69,3 @@ namespace html {
     };
 }
 
-#endif

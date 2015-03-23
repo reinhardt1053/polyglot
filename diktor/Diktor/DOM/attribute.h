@@ -6,17 +6,13 @@
 //  Copyright (c) 2015 Massimo Fazzolari. All rights reserved.
 //
 
-#ifndef ATTRIBUTE_H
-#define ATTRIBUTE_H
+#pragma once
 
 namespace dom {
-    
     class Attribute {
     public:
         string name;
         string value;
     };
-    
 }
 
-#endif
