@@ -19,7 +19,6 @@
 using namespace std;
 
 namespace dom {
-    
     class Parser {
         
     public:
