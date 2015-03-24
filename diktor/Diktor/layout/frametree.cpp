@@ -6,4 +6,13 @@
 //  Copyright (c) 2015 Massimo Fazzolari. All rights reserved.
 //
 
-#include "builder.h"
+#include "frametree.h"
+
+namespace layout {
+  
+    bool FrameTree::matches(dom::Element elem, css::Selector selector)
+    {
+        
+        return true;
+    }
+}

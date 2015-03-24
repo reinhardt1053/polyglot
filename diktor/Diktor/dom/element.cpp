@@ -24,6 +24,25 @@ namespace dom {
         _tagName = tagName;
     }
     
+    string Element::id()
+    {
+        return _attributes["id"];
+    }
+    
+    unordered_set<string> Element::classes()
+    {
+        unordered_set<string> items;
+       
+        map<string,string>::const_iterator it = _attributes.find("class");
+        while (it!=_attributes.end())
+        {
+            items.insert(it->second);
+            it++;
+        }
+        
+        return items;
+    }
+    
     string Element::to_string()
     {
         string result;

@@ -6,9 +6,20 @@
 //  Copyright (c) 2015 Massimo Fazzolari. All rights reserved.
 //
 
-#ifndef __Diktor__builder__
-#define __Diktor__builder__
+#pragma once
 
-#include <stdio.h>
+#include "layout/frame.h"
+#include "dom/node.h"
+#include "dom/element.h"
+#include "css/stylesheet.h"
 
-#endif /* defined(__Diktor__builder__) */
+namespace layout {
+    class FrameTree
+    {
+    public:
+        Frame build(shared_ptr<dom::Node> root, shared_ptr<css::Stylesheet> stylesheet);
+    private:
+        bool matches(dom::Element elem, css::Selector selector);
+    };
+
+}

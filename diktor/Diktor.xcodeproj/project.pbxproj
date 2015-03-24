@@ -18,6 +18,7 @@
 		4DBFCB171ABDE4AD001022C0 /* selector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DBFCB151ABDE4AD001022C0 /* selector.cpp */; };
 		4DBFCB211AC027B4001022C0 /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DBFCB1F1AC027B4001022C0 /* parser.cpp */; };
 		4DBFCB271AC02CA2001022C0 /* parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DBFCB251AC02CA2001022C0 /* parser.cpp */; };
+		4DBFCB2A1AC05DC9001022C0 /* frametree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4DBFCB281AC05DC9001022C0 /* frametree.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +58,8 @@
 		4DBFCB201AC027B4001022C0 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parser.h; sourceTree = "<group>"; };
 		4DBFCB251AC02CA2001022C0 /* parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = parser.cpp; path = Diktor/dom/parser.cpp; sourceTree = SOURCE_ROOT; };
 		4DBFCB261AC02CA2001022C0 /* parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = parser.h; path = Diktor/dom/parser.h; sourceTree = SOURCE_ROOT; };
+		4DBFCB281AC05DC9001022C0 /* frametree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = frametree.cpp; sourceTree = "<group>"; };
+		4DBFCB291AC05DC9001022C0 /* frametree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = frametree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				4D748F3D1AB9CE5A0016D484 /* frame.h */,
+				4DBFCB281AC05DC9001022C0 /* frametree.cpp */,
+				4DBFCB291AC05DC9001022C0 /* frametree.h */,
 			);
 			name = layout;
 			path = Diktor/layout;
@@ -203,6 +208,7 @@
 				4D748F441ABC0DA10016D484 /* value.cpp in Sources */,
 				4DBFCB171ABDE4AD001022C0 /* selector.cpp in Sources */,
 				4D748F471ABC15BC0016D484 /* stylesheet.cpp in Sources */,
+				4DBFCB2A1AC05DC9001022C0 /* frametree.cpp in Sources */,
 				4DBFCB211AC027B4001022C0 /* parser.cpp in Sources */,
 				4DBFCB271AC02CA2001022C0 /* parser.cpp in Sources */,
 				4DBFCB141ABDE437001022C0 /* declaration.cpp in Sources */,
