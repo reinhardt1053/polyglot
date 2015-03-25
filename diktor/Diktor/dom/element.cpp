@@ -11,30 +11,31 @@
 
 namespace dom {
     
-    Element::Element(string tagName, map<string,string> attributes, vector<shared_ptr<Node>> children)
+    Element::Element(string tag_name, map<string,string> attributes, vector<shared_ptr<Node>> children)
     {
-        _tagName = tagName;
-        _attributes = attributes;
+        this->tag_name = tag_name;
+        this->attributes = attributes;
         this->children = children;
         
     }
     
-    Element::Element(string tagName)
+    Element::Element(string tag_name)
     {
-        _tagName = tagName;
+        this->tag_name = tag_name;
     }
+    
     
     string Element::id()
     {
-        return _attributes["id"];
+        return attributes["id"];
     }
     
     unordered_set<string> Element::classes()
     {
         unordered_set<string> items;
        
-        map<string,string>::const_iterator it = _attributes.find("class");
-        while (it!=_attributes.end())
+        map<string,string>::const_iterator it = attributes.find("class");
+        while (it!=attributes.end())
         {
             items.insert(it->second);
             it++;
@@ -49,13 +50,13 @@ namespace dom {
         
         //Open tag
         result.append("<");
-        result.append(_tagName);
+        result.append(tag_name);
         
         //Attributes
-        if (!this->_attributes.empty())
+        if (!this->attributes.empty())
         {
             result.append(" ");
-            for (auto attribute : this->_attributes){
+            for (auto attribute : this->attributes){
                 result.append(attribute.first);
                 result.append("=\"");
                 result.append(attribute.second);
@@ -73,7 +74,7 @@ namespace dom {
         
         //Close tag;
         result.append("</");
-        result.append(_tagName);
+        result.append(tag_name);
         result.append(">");
         
         return result;

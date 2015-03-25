@@ -18,8 +18,11 @@ namespace dom {
     class Element : public Node
     {
     public:
-        Element(string tagName, map<string,string> attributes, vector<shared_ptr<Node>> children);
-        Element(string tagName);
+        string tag_name;
+        map<string, string> attributes;
+        
+        Element(string tag_name, map<string,string> attributes, vector<shared_ptr<Node>> children);
+        Element(string tag_name);
         
         //Returns the id attribute value assigned to this element
         string id();
@@ -28,10 +31,6 @@ namespace dom {
         unordered_set<string> classes();
         
         string to_string() override;
-        
-    private:
-        string _tagName;
-        map<string, string> _attributes;
         
     };
 }
